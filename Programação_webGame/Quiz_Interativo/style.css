@@ -1,0 +1,114 @@
+/* Reset e tipografia Flat */
+
+*{
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+/* fundo sólido com contraste com o card */
+
+body{
+    color: #F7F4ED;
+    background-color: gray;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;    
+}
+
+.quiz-card{
+    background-color: #000080;
+    padding: 30px;
+    border-radius: 4px; /* Menos arredondado que o original */
+    width: 340px;
+    margin-top: 20px;
+
+}
+
+h2{
+    font-size: 1.2rem;
+    margin-top: 0%;
+    color: #C8A96B;
+
+
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+/* labels com cores chapa e sem animação */
+label{
+    display: block;
+    background-color: #000000;
+    color: #9929EA;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.3s ease;
+}
+/* Interação do hover apenas mudando a cor sólida */
+label:hover{
+    background: #9f9d9c;
+}
+
+#correct:checked + label{
+    background-color: #41b15f;
+    color: rgb(0, 0, 0);
+}
+
+#wrong1:checked + label,
+#wrong2:checked + label{
+
+    background-color: #c33621;
+    color: #000000;
+}
+
+
+.feedback{
+    display: none;
+    margin-top: 16px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#correct:checked ~.feedback-correct{
+    display: block;
+    color: #41b15f);
+}
+
+
+#correct:checked ~.feedback-wrong1,
+#correct:checked ~.feedback-wrong2{
+    display: block;
+    color: #c33621;
+}  
+
+.btn-nav{
+    display: none;
+    margin-top: 20px;
+    padding: 14px;
+    background-color: #ffffff);
+    color: antiquewhite;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: background 0.5s ease;
+
+}
+
+
+.btn-nav:hover{
+    background-color: #ffffff;
+
+}
+
+#correct:checked ~.btn-nav{
+    display: block;
+}
