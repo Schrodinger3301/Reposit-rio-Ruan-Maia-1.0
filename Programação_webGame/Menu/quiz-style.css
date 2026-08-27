@@ -77,7 +77,7 @@ label:hover{
 
 #correct:checked ~.feedback-correct{
     display: block;
-    color: #41b15f);
+    color: #41b15f;
 }
 
 
@@ -91,7 +91,7 @@ label:hover{
     display: none;
     margin-top: 20px;
     padding: 14px;
-    background-color: #ffffff);
+    background-color: beige;
     color: antiquewhite;
     text-align: center;
     text-decoration: none;

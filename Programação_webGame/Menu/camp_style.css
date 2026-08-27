@@ -10,8 +10,8 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background-color: #a90000;
-    color: #fcfafa;
+    background-color: #ffa200;
+    color: #333;
 }
 
 .game-container {
@@ -57,7 +57,7 @@ input[type="checkbox"] {
 }
 
 .tile {
-    background: #7300f7;
+    background: #03eeee;
     border-radius: 6px;
     cursor: pointer;
     display: flex;
@@ -113,20 +113,19 @@ input[type="checkbox"] {
 
 .btn-restart {
     padding: 10px 18px;
-    background: #e71d36;
+    background: #1d20e7;
     color: #fff;
     border-radius: 5px;
     font-weight: bold;
     text-decoration: none;
 }
 
-/*Disparo de Derrota (Qualquer bomba ativada)*/
+/*Disparo de Derrota (qualquer bomba ativada)*/
 #b1:checked ~ .screen-lose,
-#b2:checked ~ .screen-lose{
+#b2:checked ~ .screen-lose {
     display: flex;
 }
 
-#c1:checked ~ #c2:checked ~ #c3:checked ~ #c4:checked ~ #c5:checked ~ #c6:checked ~ #c7:checked ~ .screen-win
-{
+#c1:checked ~ #c2:checked ~ #c3:checked ~ #c4:checked ~ #c5:checked ~ #c6:checked ~ #c7:checked ~ .screen-win {
     display: flex;
 }
