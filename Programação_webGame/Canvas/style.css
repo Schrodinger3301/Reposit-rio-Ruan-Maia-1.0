@@ -1,0 +1,120 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+  background-color: #1a1a24;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 24px;
+  font-size: 1.1rem;
+  font-weight: bold;
+}
+
+.scoreboard span {
+  color: #38bdf8;
+}
+
+canvas {
+  background-color: #111118;
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+button {
+  background-color: #22c55e;
+  color: #052e16;
+  border: none;
+  padding: 10px 24px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: transform 0.1s, background-color 0.2s;
+}
+
+button:hover {
+  background-color: #16a34a;
+  transform: scale(1.04);
+}
+
+button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+#status-text {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  min-height: 20px;
+}
+/* Container do Rodapé */
+.game-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  margin-top: 8px;
+}
+
+/* Botão Iniciar Jogo */
+.game-footer button {
+  background-color: #22c55e;
+  color: #052e16;
+  border: none;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.15s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+.game-footer button:hover {
+  background-color: #16a34a;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(34, 197, 94, 0.4);
+}
+
+.game-footer button:active {
+  transform: translateY(0);
+}
+
+.game-footer button:disabled {
+  background-color: #475569;
+  color: #94a3b8;
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* Texto de Status / Instruções */
+.game-footer #status-text {
+  font-size: 0.95rem;
+  color: #94a3b8;
+  min-height: 22px;
+  text-align: center;
+}
