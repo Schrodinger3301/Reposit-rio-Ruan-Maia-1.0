@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu Painel de Produtividade & Utilidades</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <main class="card">
+    <!-- Módulo A: Cabeçalho & Tema Global -->
+    <header class="card-header">
+      <h1 class="card-title">Aluno: Ruan Maia</h1>
+      <p class="card-subtitle">Gerencie suas tarefas e métricas em um só lugar</p>
+      <div style="margin-top: 15px;">
+        <button id="btn-theme" class="btn">🌙 Modo Escuro</button>
+      </div>
+    </header>
+
+    <hr>
+
+    <!-- Módulo B: Identificação & Monitoramento de Texto -->
+    <section class="form-group">
+      <label for="input-profile" class="form-label">1. Perfil & Caracteres</label>
+      <input type="text" id="input-profile" class="input-field" placeholder="Digite seu nome ou uma anotação...">
+      
+      <div class="btn-group" style="margin-top: 8px;">
+        <button id="btn-welcome" class="btn">Exibir Boas-Vindas</button>
+      </div>
+
+      <p id="welcome-msg" class="card-subtitle text-center" style="margin-top: 6px; font-weight: 600;"></p>
+      <p class="card-subtitle text-center">Caracteres digitados: <span id="char-count" style="font-weight: 700;">0</span></p>
+    </section>
+
+    <hr>
+
+    <!-- Módulo C: Contador de Foco / Produtividade -->
+    <section class="form-group">
+      <label class="form-label text-center">2. Contador de Foco</label>
+      <div id="counter-display" class="counter-display text-muted">0</div>
+      
+      <div class="btn-group">
+        <button id="btn-increment" class="btn btn-success">+</button>
+        <button id="btn-decrement" class="btn btn-danger">-</button>
+        <button id="btn-reset" class="btn btn-outline">Zerar</button>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Módulo D: Lista de Tarefas & Mensagem Secreta -->
+    <section class="form-group">
+      <label class="form-label">3. Lista de Tarefas & Dicas</label>
+      
+      <div style="display: flex; gap: 8px;">
+        <input type="text" id="input-task" class="input-field" placeholder="Nova tarefa...">
+        <button id="btn-add-task" class="btn btn-success">Adicionar</button>
+      </div>
+
+      <ul id="task-list" class="task-list" style="margin-top: 10px;"></ul>
+
+      <div style="margin-top: 10px; text-align: center;">
+        <button id="btn-toggle-hint" class="btn btn-outline">Mostrar Dica</button>
+        <p id="hint-text" class="card-subtitle" style="display: none; margin-top: 10px; font-style: italic;">
+          💡 Dica de Produtividade: Divida tarefas grandes em pequenos passos de 25 minutos!
+        </p>
+      </div>
+    </section>
+
+    <hr>
+
+    <!-- Módulo E: Calculadora Rápida & Bloco de Cor -->
+    <section class="form-group">
+      <label class="form-label">4. Calculadora Rápida & Seletor de Cores</label>
+      
+      <!-- Calculadora -->
+      <div style="display: flex; gap: 8px;">
+        <input type="number" id="calc-num1" class="input-field" placeholder="Número 1">
+        <input type="number" id="calc-num2" class="input-field" placeholder="Número 2">
+      </div>
+
+      <div class="btn-group" style="margin-top: 8px;">
+        <button id="btn-calc-add" class="btn">+</button>
+        <button id="btn-calc-sub" class="btn">-</button>
+        <button id="btn-calc-div" class="btn">÷</button>
+      </div>
+
+      <p id="calc-result" class="text-center" style="margin-top: 8px; font-weight: 700;"></p>
+
+      <!-- Seletor de Cores -->
+      <div id="color-preview" class="color-preview" style="margin-top: 16px; background-color: #e2e8f0; color: #0f172a;">
+        Amostra de Cor
+      </div>
+
+      <div class="btn-group" style="margin-top: 10px;">
+        <button id="btn-color-red" class="btn btn-danger">Vermelho</button>
+        <button id="btn-color-green" class="btn btn-success">Verde</button>
+        <button id="btn-color-purple" class="btn btn-roxo">Roxo</button>
+        <button id="btn-color-blue" class="btn">Azul</button>
+      </div>
+    </section>
+
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

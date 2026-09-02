@@ -1,7 +1,7 @@
-/* 1. Elementos da Interface */
+// ! 1. Elementos da Interface
 const canvas = document.getElementById("game-canvas");
 const ctx = canvas.getContext('2d');
-const startBtn = document.getElementById("star-btn");
+const startBtn = document.getElementById("start-btn");
 const highScoreDisplay = document.getElementById("high-score-display");
 const statusText = document.getElementById("status-text");
 const roundDisplay = document.getElementById("round-display");

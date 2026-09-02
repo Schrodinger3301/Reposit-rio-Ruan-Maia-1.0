@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Slots 777 - Jogo</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'><text y='18' font-size='18'>🪙</text></svg>">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Press Start 2P', monospace;
+    }
+
+    body {
+      background-color: #1a0826;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .casino-machine {
+      background: #3d0066;
+      border: 6px solid #ffbd03;
+      border-radius: 12px;
+      padding: 28px;
+      box-shadow: 0 10px 0 #1b002c;
+      text-align: center;
+      width: 360px;
+    }
+
+    .hud {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      font-size: 0.75rem;
+      color: #00ffcc;
+    }
+
+    .reels-container {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      background: #111;
+      padding: 16px;
+      border: 4px solid #fff;
+      margin-bottom: 24px;
+    }
+
+    .reel {
+      width: 70px;
+      height: 70px;
+      background: #222;
+      border: 2px solid #555;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .message {
+      font-size: 0.75rem;
+      height: 24px;
+      margin-bottom: 16px;
+      color: #ffeb3b;
+    }
+
+    .controls {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    button {
+      font-family: 'Press Start 2P', monospace;
+      padding: 14px;
+      cursor: pointer;
+      border: 3px solid #000;
+      box-shadow: 4px 4px 0px #000;
+      font-size: 0.8rem;
+      transition: 0.1s;
+    }
+
+    .btn-spin {
+      background: #00e676;
+      color: #000;
+    }
+
+    .btn-spin:disabled {
+      background: #666;
+      cursor: not-allowed;
+      box-shadow: none;
+    }
+
+    .btn-back {
+      background: #ff5252;
+      color: #fff;
+    }
+
+    button:active:not(:disabled) {
+      transform: translate(2px, 2px);
+      box-shadow: 2px 2px 0px #000;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="casino-machine">
+    <div class="hud">
+      <span>SALDO: <span id="balance">100</span></span>
+      <span>CUSTO: 10</span>
+    </div>
+
+    <div class="reels-container">
+      <div class="reel" id="reel-1">🍒</div>
+      <div class="reel" id="reel-2">🍋</div>
+      <div class="reel" id="reel-3">🍇</div>
+    </div>
+
+    <div id="message" class="message">BOA SORTE!</div>
+
+    <div class="controls">
+      <button id="btn-spin" class="btn-spin">GIRAR (-10)</button>
+      <button id="btn-back" class="btn-back">SAIR / MENU</button>
+    </div>
+  </div>
+
+  <script>
+    const symbols = ['🍒', '🍋', '🍇', '⭐', '7️⃣','🍎','🍊','🟢'];
+    let balance = 100;
+
+    const balanceEl = document.getElementById('balance');
+    const msgEl = document.getElementById('message');
+    const btnSpin = document.getElementById('btn-spin');
+    const btnBack = document.getElementById('btn-back');
+
+    const reels = [
+      document.getElementById('reel-1'),
+      document.getElementById('reel-2'),
+      document.getElementById('reel-3')
+    ];
+
+    btnSpin.addEventListener('click', () => {
+      if (balance < 10) {
+        msgEl.textContent = 'SALDO INSUFICIENTE!';
+        return;
+      }
+
+      balance -= 10;
+      balanceEl.textContent = balance;
+      btnSpin.disabled = true;
+      msgEl.textContent = 'GIRANDO...';
+
+      // Efeito de rolagem
+      let counter = 0;
+      const interval = setInterval(() => {
+        reels.forEach(reel => {
+          reel.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+        });
+        counter++;
+
+        if (counter > 12) {
+          clearInterval(interval);
+          finalizarRodada();
+        }
+      }, 70);
+    });
+
+    function finalizarRodada() {
+      const res = reels.map(() => symbols[Math.floor(Math.random() * symbols.length)]);
+      reels[0].textContent = res[0];
+      reels[1].textContent = res[1];
+      reels[2].textContent = res[2];
+
+      if (res[0] === res[1] && res[1] === res[2]) {
+        if (res[0] === '7️⃣') {
+          balance += 100;
+          msgEl.textContent = 'JACKPOT! +100';
+        } else {
+          balance += 40;
+          msgEl.textContent = 'VENCEU! +40';
+        }
+      } else if (res[0] === res[1] || res[1] === res[2] || res[0] === res[2]) {
+        balance += 15;
+        msgEl.textContent = 'PAR! +15';
+      } else {
+        msgEl.textContent = 'TENTE DE NOVO!';
+      }
+
+      balanceEl.textContent = balance;
+      btnSpin.disabled = balance < 10;
+    }
+
+    // Voltar para o menu
+    btnBack.addEventListener('click', () => {
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
