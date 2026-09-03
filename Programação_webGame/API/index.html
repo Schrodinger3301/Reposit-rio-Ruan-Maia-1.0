@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz com API Externa</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="quiz-card">
+        <div class="header">
+            <span id="score-display">Pontos: 0</span>
+            <span id="category-badge">Carregando</span>
+        </div>
+
+        <h2 id="question">Carregando pergunta...</h2>
+        
+        <div id="options-container" class="options-grid"></div>
+
+        <p id="feedback-message"></p>
+        <button id="next-btn" class="next-btn hidden">Próxima Pergunta</button>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
